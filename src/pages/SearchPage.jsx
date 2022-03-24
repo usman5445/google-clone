@@ -146,7 +146,11 @@ function SearchPage() {
                 {item.displayLink} <MoreVertOutlined size="small" />
               </span>
 
-              <a style={{ fontSize: "x-large" }} href={item.formattedUrl}>
+              <a
+                style={{ fontSize: "x-large" }}
+                target="_blank"
+                href={item.formattedUrl}
+              >
                 {item.title}
               </a>
               <br />
