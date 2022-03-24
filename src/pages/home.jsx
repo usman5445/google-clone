@@ -1,7 +1,9 @@
 import React from "react";
 import { SearchRounded, MicRounded } from "@mui/icons-material";
 import { Paper, InputBase, IconButton, Button } from "@mui/material";
+import { Navigate, useNavigate } from "react-router-dom";
 function HomePage() {
+  const navigate = useNavigate();
   return (
     <div
       className="home-container"
@@ -18,6 +20,7 @@ function HomePage() {
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIN7bHMpaAD_RpHSWxMQwBF3jQDDDdF3IfzhRM4TKygk-ASnfRVgBehCKYEiEv9tXG8DA&usqp=CAU"
         alt="Logo"
         style={{ height: "120px", width: "fit-content" }}
+        onClick={() => navigate("/")}
       />
       <Paper
         component="form"

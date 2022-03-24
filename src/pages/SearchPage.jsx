@@ -14,9 +14,11 @@ import {
 import { IconButton, InputBase, Paper, Tab, Tabs } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SearchPage() {
   const [Tabvalue, setTabvalue] = useState(0);
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -37,6 +39,7 @@ function SearchPage() {
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIN7bHMpaAD_RpHSWxMQwBF3jQDDDdF3IfzhRM4TKygk-ASnfRVgBehCKYEiEv9tXG8DA&usqp=CAU"
           alt="Logo"
           style={{ height: "60px", width: "fit-content" }}
+          onClick={() => navigate("/")}
         />
         <Paper
           component="form"
