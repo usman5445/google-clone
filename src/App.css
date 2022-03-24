@@ -19,12 +19,11 @@ body {
 @media screen and (max-width: 800px) {
   .rightIcons {
     display: none;
-    background-color: blue;
   }
   .tabs {
-    margin-left: auto;
+    margin-left: 2%;
   }
   .results-container {
-    margin-left: auto;
+    margin-left: 2%;
   }
 }

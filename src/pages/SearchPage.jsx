@@ -13,12 +13,16 @@ import {
 } from "@mui/icons-material";
 import { IconButton, InputBase, Paper, Tab, Tabs } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Getdata } from "../context";
+import HandleSearch from "../handleSearch";
 
 function SearchPage() {
   const [Tabvalue, setTabvalue] = useState(0);
   const navigate = useNavigate();
+  const inputValue = useRef();
+  const data = Getdata();
   return (
     <div
       style={{
@@ -43,6 +47,10 @@ function SearchPage() {
         />
         <Paper
           component="form"
+          onSubmit={(e) => (
+            e.preventDefault(),
+            HandleSearch(inputValue.current.value, data.dispatch, navigate)
+          )}
           sx={{
             marginLeft: "1%",
             p: "0 10px",
@@ -56,6 +64,7 @@ function SearchPage() {
         >
           <SearchRounded htmlColor="gray" />
           <InputBase
+            inputRef={inputValue}
             sx={{ ml: 1, flex: 1 }}
             placeholder="Search Google or type a URL"
             inputProps={{ "aria-label": "Search Google or type a URL" }}
@@ -126,168 +135,24 @@ function SearchPage() {
         </Tabs>
       </Box>
       <div className="results-container">
-        <p>About 20,90,000 results (0.43 seconds) </p>
+        <p>
+          About {data.state?.searchInformation.formattedTotalResults} results (
+          {data.state?.searchInformation.formattedSearchTime} seconds)
+        </p>
         <div>
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
+          {data.state?.items.map((item) => (
+            <div>
+              <span style={{ display: "flex", alignItems: "center" }}>
+                {item.displayLink} <MoreVertOutlined size="small" />
+              </span>
 
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
-          <div>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              https://www.halo.co.in <MoreVertOutlined size="small" />
-            </span>
-
-            <a style={{ fontSize: "x-large" }} href="">
-              NMIMS Online - Distance & Online Programs
-            </a>
-            <br />
-            <p>
-              ... in career-led education; NMIMS Global empowers you by bringing
-              the same educational tradition, ethic & pedagogy to the online
-              medium of learning.
-            </p>
-          </div>
-          {/* brk */}
+              <a style={{ fontSize: "x-large" }} href="">
+                {item.title}
+              </a>
+              <br />
+              <p>{item.snippet}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
