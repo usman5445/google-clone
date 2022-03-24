@@ -38,7 +38,7 @@ function HomePage() {
           p: "2px 10px",
           display: "flex",
           alignItems: "center",
-          width: "40%",
+          width: "60%",
           boxShadow: "none",
           borderRadius: "50px",
           border: "solid 1px lightgray",
